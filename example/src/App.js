@@ -20,7 +20,8 @@ import {
   useMedia,
   useClickOutside,
   useColorScheme,
-  useFullScreen
+  useFullScreen,
+  useSessionStorage
 } from 'react-kanca'
 // import 'react-kanca/dist/index.css'
 
@@ -85,6 +86,13 @@ const App = () => {
   // const colorScheme = useColorScheme()
 
   // const { isFullScreen, enterFullScreen, exitFullScreen } = useFullScreen()
+
+  /*   const [name, setName] = useSessionStorage('name', 'John')
+
+  const handleChange = (event) => {
+    setName(event.target.value)
+  }
+  const [name] = useSessionStorage('name', 'John'); */
 
   return (
     <>
@@ -183,6 +191,11 @@ const App = () => {
         <button onClick={enterFullScreen}>Tam Ekran Modu</button>
         <button onClick={exitFullScreen}>Tam Ekran Modundan Çık</button>
         <p>Şu an tam ekran modunda: {isFullScreen ? 'Evet' : 'Hayır'}</p>
+      </div> */}
+
+      {/*       <div>
+        <input type='text' value={name} onChange={handleChange} />
+        <p>Hello, {name}!</p>
       </div> */}
     </>
   )
