@@ -21,7 +21,12 @@ import {
   useClickOutside,
   useColorScheme,
   useFullScreen,
-  useSessionStorage
+  useSessionStorage,
+  useScrollLock,
+  usePreferredLanguage,
+  useMousePageLeave,
+  usePageLeave,
+  useForceUpdate
 } from 'react-kanca'
 // import 'react-kanca/dist/index.css'
 
@@ -94,6 +99,21 @@ const App = () => {
   }
   const [name] = useSessionStorage('name', 'John'); */
 
+  /*   const [scrollLock, setScrollLock] = useState(false)
+  useScrollLock(scrollLock) */
+
+  // const preferredLanguage = usePreferredLanguage()
+
+  /*   const [leftsCount, setLeftsCount] = useState(0)
+  useMousePageLeave(() => setLeftsCount((p) => p + 1)) */
+
+  /*   const handlePageLeave = () => {
+    return 'Sayfayı kapatmak istediğinizden emin misiniz?'
+  }
+  usePageLeave(handlePageLeave) */
+
+  // const forceUpdate = useForceUpdate()
+
   return (
     <>
       <br />
@@ -103,22 +123,22 @@ const App = () => {
       <br />
       {/* <div>
         <div ref={scrollRef} style={{ overflow: 'auto', height: '300px' }}>
-          <div>adasdasdasd</div>
-          <div>adasdasdasd</div>
-          <div>adasdasdasd</div>
-          <div>adasdasdasd</div>
-          <div>adasdasdasd</div>
-          <div>adasdasdasd</div>
-          <div>adasdasdasd</div>
-          <div>adasdasdasd</div>
-          <div>adasdasdasd</div>
-          <div>adasdasdasd</div>
-          <div>adasdasdasd</div>
-          <div>adasdasdasd</div>
-          <div>adasdasdasd</div>
-          <div>adasdasdasd</div>
-          <div>adasdasdasd</div>
-          <div>adasdasdasd</div>
+          <div>.........</div>
+          <div>.........</div>
+          <div>.........</div>
+          <div>.........</div>
+          <div>.........</div>
+          <div>.........</div>
+          <div>.........</div>
+          <div>.........</div>
+          <div>.........</div>
+          <div>.........</div>
+          <div>.........</div>
+          <div>.........</div>
+          <div>.........</div>
+          <div>.........</div>
+          <div>.........</div>
+          <div>.........</div>
         </div>
         {<div>{scrolling ? 'Scrolling' : 'Not scrolling'}</div>}
       </div> */}
@@ -196,6 +216,28 @@ const App = () => {
       {/*       <div>
         <input type='text' value={name} onChange={handleChange} />
         <p>Hello, {name}!</p>
+      </div> */}
+
+      {/*       <button onClick={() => setScrollLock(!scrollLock)}>
+        {scrollLock ? 'Unlock Scroll' : 'Lock Scroll'}
+      </button> */}
+
+      {/*       <div>
+        <h1>Tercih Edilen Dil:</h1>
+        <p>{preferredLanguage}</p>
+      </div> */}
+
+      {/* <div>Mouse sayfadan {leftsCount} kere ayrıldı</div> */}
+
+      {/*       <div>
+        <h1>Sayfayı Kapatma Uyarısı</h1>
+        <p>Bu sayfadan ayrılmak istediğinizde bir uyarı göreceksiniz.</p>
+      </div> */}
+
+      {/*       <div>
+        <h1>Manuel Yeniden Render</h1>
+        <p>Şu anki zaman: {new Date().toLocaleTimeString()}</p>
+        <button onClick={forceUpdate}>Yeniden Render Et</button>
       </div> */}
     </>
   )

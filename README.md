@@ -39,7 +39,13 @@ import {
   useMedia,
   useClickOutside,
   useColorScheme,
-  useFullScreen
+  useFullScreen,
+  useSessionStorage,
+  useScrollLock,
+  usePreferredLanguage,
+  useMousePageLeave,
+  usePageLeave,
+  useForceUpdate
 } from 'react-kanca'
 
 // import 'react-kanca/dist/index.css'
