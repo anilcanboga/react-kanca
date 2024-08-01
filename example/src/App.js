@@ -26,14 +26,28 @@ import {
   usePreferredLanguage,
   useMousePageLeave,
   usePageLeave,
-  useForceUpdate
+  useForceUpdate,
+  useInterval,
+  useIntersectionObserver,
+  useMobileLandscape,
+  useOnlineStatus,
+  useScrollToElement,
+  useStateValidator,
+  useMultiStateValidator,
+  useWindowScroll
 } from 'react-kanca'
 // import 'react-kanca/dist/index.css'
 
 const App = () => {
   // const { width, height } = useWindowSize()
   // const isVisible = usePageVisible()
-  // const debounce = useDebounce('ab', 5000)
+
+  /*   const [text, setText] = useState('Kanca useDebounce')
+  const [duration, setDuration] = useState(3000)
+  const [debouncedText, debounce] = useDebounce()
+  const handleClick = () => {
+    debounce(text, duration)
+  } */
 
   // const [count, setCount] = useState(0)
   // const prevCount = usePrevious(count)
@@ -114,8 +128,71 @@ const App = () => {
 
   // const forceUpdate = useForceUpdate()
 
+  /*   const [count, setCount] = useState(0)
+  const [delay, setDelay] = useState(1000)
+  const [isRunning, toggleIsRunning] = useState(true)
+  useInterval(
+    () => {
+      setCount(count + 1)
+    },
+    isRunning ? delay : null
+  ) */
+
+  /*   const targetRef = useRef(null)
+  const isVisible = useIntersectionObserver(targetRef, {
+    root: null, // veya belirli bir root elemanı
+    rootMargin: '0px',
+    threshold: 0.1 // Elemanın %10'u görünür olduğunda tetiklenir
+  }) */
+
+  // const { isMobileLandscape, isLandscape, isMobile } = useMobileLandscape()
+
+  // const isOnline = useOnlineStatus()
+
+  /*  const scrollToElement = useScrollToElement()
+  const myRef = useRef(null) */
+
+  /*   const ExampleStateValidator = (s) => [s === '' ? null : (s * 1) % 2 === 0]
+  const [state, setState] = useState(0)
+  const [[isValid]] = useStateValidator(state, ExampleStateValidator) */
+
+  /*   const ExampleMultiStateValidator = (s) => [s.every((num) => !(num % 2))]
+  const [state1, setState1] = useState(1)
+  const [state2, setState2] = useState(1)
+  const [state3, setState3] = useState(1)
+  const [[isValid]] = useMultiStateValidator(
+    [state1, state2, state3],
+    ExampleMultiStateValidator
+  ) */
+
+  // const { x, y } = useWindowScroll()
+
   return (
     <>
+      {/*  <div>
+        <div>
+          <label>Yazılacak Değer: </label>
+          <input onChange={(e) => setText(e.target.value)} value={text} />
+        </div>
+        <br />
+        <div>
+          <label>Kaç saniye sonra (ms): </label>
+          <input
+            type='number'
+            onChange={(e) => setDuration(Number(e.target.value))}
+            value={duration}
+          />
+        </div>
+        <br />
+        <div>
+          <button onClick={handleClick}>Tıkla</button>
+        </div>
+        <br />
+        <div>
+          <p>Debounced Yazı: {debouncedText}</p>
+        </div>
+      </div> */}
+
       <br />
       {/* <h1>Current Count: {count}</h1>
       <h2>Previous Count: {prevCount !== undefined ? prevCount : 'N/A'}</h2>
@@ -151,18 +228,15 @@ const App = () => {
         <button onClick={() => setValue('baz')}>baz</button>
         <button onClick={() => remove()}>Remove</button>
       </div> */}
-
       {/* <div>
           <p>Value: {value}</p>
           <button onClick={updateCookieHandler}>Update Cookie</button>
           <br />
           <button onClick={deleteCookie}>Delete Cookie</button>
         </div> */}
-
       {/* <div>
         <pre>{JSON.stringify(state, null, 2)}</pre>
       </div> */}
-
       {/* <div>
         {isFirstRender ? (
           <p>This is the first render</p>
@@ -171,21 +245,17 @@ const App = () => {
         )}
         <button onClick={handleRenderClick}>Click</button>
       </div> */}
-
       {/* <div>Internet Durumu = {status ? 'online' : 'offline'}</div> */}
-
       {/* <div>
         <p>Batarya Seviyesi: {batteryLevel}%</p>
         <p>Şarj Oluyor mu: {isCharging ? 'Evet' : 'Hayır'}</p>
         <p>Tam Şarj Süresi: {chargingTime} saniye</p>
         <p>Tahmini Şarj Bitiş Süresi: {dischargingTime} saniye</p>
       </div> */}
-
       {/* <button onClick={() => copyToClipboard('Bu bir denemedir.')}>
         Tıkla
       </button>
       {copied ? 'kopyalandı' : 'Kopyala'} */}
-
       {/*       <div>
         <div
           className='click-box'
@@ -202,42 +272,153 @@ const App = () => {
           <p>Bu öğenin dışına tıklayın</p>
         </div>
       </div> */}
-
       {/*       <div className={`app ${colorScheme}`}>
         <p>Şu anki renk teması: {colorScheme}</p>
       </div> */}
-
       {/*       <div>
         <button onClick={enterFullScreen}>Tam Ekran Modu</button>
         <button onClick={exitFullScreen}>Tam Ekran Modundan Çık</button>
         <p>Şu an tam ekran modunda: {isFullScreen ? 'Evet' : 'Hayır'}</p>
       </div> */}
-
       {/*       <div>
         <input type='text' value={name} onChange={handleChange} />
         <p>Hello, {name}!</p>
       </div> */}
-
       {/*       <button onClick={() => setScrollLock(!scrollLock)}>
         {scrollLock ? 'Unlock Scroll' : 'Lock Scroll'}
       </button> */}
-
       {/*       <div>
         <h1>Tercih Edilen Dil:</h1>
         <p>{preferredLanguage}</p>
       </div> */}
-
       {/* <div>Mouse sayfadan {leftsCount} kere ayrıldı</div> */}
-
       {/*       <div>
         <h1>Sayfayı Kapatma Uyarısı</h1>
         <p>Bu sayfadan ayrılmak istediğinizde bir uyarı göreceksiniz.</p>
       </div> */}
-
       {/*       <div>
         <h1>Manuel Yeniden Render</h1>
         <p>Şu anki zaman: {new Date().toLocaleTimeString()}</p>
         <button onClick={forceUpdate}>Yeniden Render Et</button>
+      </div> */}
+      {/*       <div>
+        <input
+          value={delay}
+          onChange={(event) => setDelay(Number(event.target.value))}
+        />
+      </div>
+      <h1>count: {count}</h1>
+      <div>
+        <button onClick={toggleIsRunning}>
+          {isRunning ? 'stop' : 'start'}
+        </button>
+      </div> */}
+      {/*       <h1>Scroll yaparak çalıştırabilirsiniz.</h1>
+      <div style={{ height: '100vh' }}></div>
+      <div
+        ref={targetRef}
+        style={{
+          height: '100px',
+          backgroundColor: isVisible ? 'green' : 'red'
+        }}
+      >
+        {isVisible ? 'Görünür!' : 'Görünmez!'}
+      </div> */}
+
+      {/*       <div>
+        <h1>
+          {isMobileLandscape
+            ? 'Mobil Landscape Modu'
+            : 'Mobil Landscape Modu Değil'}
+        </h1>
+        <p>
+          {isMobileLandscape
+            ? 'Şu anda mobil cihazınızı yatay modda kullanıyorsunuz.'
+            : 'Ya mobil cihazda değilsiniz ya da landscape modundasınız.'}
+        </p>
+      </div> */}
+
+      {/* <div>{isOnline ? <p>Çevrimiçi</p> : <p>Çevrimdışı</p>}</div> */}
+
+      {/*       <div>
+        <button onClick={() => scrollToElement(myRef)}>Ref ile Kaydır</button>
+        <button onClick={() => scrollToElement('#my-element')}>
+          CSS Seçici ile Kaydır
+        </button>
+        <div style={{ height: '1500px' }}>Boş Alan</div>
+        <div
+          ref={myRef}
+          id='my-element'
+          style={{ padding: '20px', background: 'lightblue' }}
+        >
+          Hedef Element
+        </div>
+      </div> */}
+
+      {/*       <div>
+        <div>
+          Aşağıdaki alan yalnızca sayının çift olması durumunda geçerlidir
+        </div>
+        <input
+          type='number'
+          min='0'
+          max='10'
+          value={state}
+          onChange={(ev) => {
+            setState(ev.target.value)
+          }}
+        />
+        {isValid !== null && <span>{isValid ? 'Geçerli!' : 'Geçersiz'}</span>}
+      </div> */}
+
+      {/*       <div>
+        <div>Aşağıdaki alanların tamamı çift sayı ise geçerli olacaktır.</div>
+        <input
+          type='number'
+          min='1'
+          max='10'
+          value={state1}
+          onChange={(ev) => {
+            setState1(ev.target.value)
+          }}
+        />
+        <input
+          type='number'
+          min='1'
+          max='10'
+          value={state2}
+          onChange={(ev) => {
+            setState2(ev.target.value)
+          }}
+        />
+        <input
+          type='number'
+          min='1'
+          max='10'
+          value={state3}
+          onChange={(ev) => {
+            setState3(ev.target.value)
+          }}
+        />
+        {isValid !== null && <span>{isValid ? 'Geçerli!' : 'Geçersiz'}</span>}
+      </div> */}
+
+      {/*   <div
+        style={{
+          width: '200vw',
+          height: '200vh'
+        }}
+      >
+        <div
+          style={{
+            position: 'fixed',
+            left: 0,
+            right: 0
+          }}
+        >
+          <div>x: {x}</div>
+          <div>y: {y}</div>
+        </div>
       </div> */}
     </>
   )
