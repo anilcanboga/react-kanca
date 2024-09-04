@@ -11,12 +11,19 @@ yarn add react-kanca
 ```
 
 ```bash
-npm install --save react-kanca
+npm install react-kanca
+```
+
+```bash
+pnpm i react-kanca
 ```
 
 ![React Kanca](https://miro.medium.com/v2/resize:fit:1400/format:webp/0*nl2InXMi1tuDmnrv.png)
 
 ## Usage
+
+Storybook Demo:
+[![React Kanca Storybook](https://raw.githubusercontent.com/storybookjs/brand/37c5e9bde5c56b69a8c4312de7d60fb3a9d7de9d/icon/icon-storybook-default.svg)](https://react-kanca-storybook.vercel.app/)
 
 ```jsx
 import {
@@ -52,7 +59,7 @@ import {
   useSessionStorage,
   useStateValidator,
   useThrottle,
-  useWindowScroll
+  useWindowScroll,
   useWindowSize,
 } from 'react-kanca'
 
@@ -61,7 +68,6 @@ import {
 const App = () => {
     const { width, height } = useWindowSize()
     const isVisible = usePageVisible()
-    const debounce = useDebounce('React Kanca', 5000)
 
     .
     .
