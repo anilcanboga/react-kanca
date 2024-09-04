@@ -91,7 +91,7 @@ const App = () => {
 
   // const { status } = useConnection()
 
-  // const { batteryLevel, isCharging, chargingTime, dischargingTime } =
+  // const { batteryLevel, isCharging, dischargingTime } =
   //   useBatteryInfo()
 
   // const { copied, error, copyToClipboard } = useCopyToClipboard()
@@ -130,10 +130,11 @@ const App = () => {
 
   /*   const [count, setCount] = useState(0)
   const [delay, setDelay] = useState(1000)
-  const [isRunning, toggleIsRunning] = useState(true)
+  const [isRunning, setIsRunning] = useState(true)
+
   useInterval(
     () => {
-      setCount(count + 1)
+      setCount((prevCount) => prevCount + 1)
     },
     isRunning ? delay : null
   ) */
@@ -249,7 +250,6 @@ const App = () => {
       {/* <div>
         <p>Batarya Seviyesi: {batteryLevel}%</p>
         <p>Şarj Oluyor mu: {isCharging ? 'Evet' : 'Hayır'}</p>
-        <p>Tam Şarj Süresi: {chargingTime} saniye</p>
         <p>Tahmini Şarj Bitiş Süresi: {dischargingTime} saniye</p>
       </div> */}
       {/* <button onClick={() => copyToClipboard('Bu bir denemedir.')}>
@@ -303,15 +303,16 @@ const App = () => {
       </div> */}
       {/*       <div>
         <input
+          type='number'
           value={delay}
           onChange={(event) => setDelay(Number(event.target.value))}
         />
-      </div>
-      <h1>count: {count}</h1>
-      <div>
-        <button onClick={toggleIsRunning}>
-          {isRunning ? 'stop' : 'start'}
-        </button>
+        <h1>Sayı: {count}</h1>
+        <div>
+          <button onClick={() => setIsRunning(!isRunning)}>
+            {isRunning ? 'Durdur' : 'Başlat'}
+          </button>
+        </div>
       </div> */}
       {/*       <h1>Scroll yaparak çalıştırabilirsiniz.</h1>
       <div style={{ height: '100vh' }}></div>

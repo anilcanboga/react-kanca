@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 export const useBatteryInfo = () => {
   const [batteryLevel, setBatteryLevel] = useState(null)
   const [isCharging, setIsCharging] = useState(null)
-  const [chargingTime, setChargingTime] = useState(null)
   const [dischargingTime, setDischargingTime] = useState(null)
 
   useEffect(() => {
@@ -14,7 +13,6 @@ export const useBatteryInfo = () => {
         const updateBatteryInfo = () => {
           setBatteryLevel(Math.round(battery.level * 100))
           setIsCharging(battery.charging)
-          setChargingTime(battery.chargingTime)
           setDischargingTime(battery.dischargingTime)
         }
 
@@ -45,5 +43,5 @@ export const useBatteryInfo = () => {
     return () => {}
   }, [])
 
-  return { batteryLevel, isCharging, chargingTime, dischargingTime }
+  return { batteryLevel, isCharging, dischargingTime }
 }
