@@ -5,6 +5,7 @@
   "author": "anilcanboga",
   "license": "MIT",
   "repository": "anilcanboga/react-kanca",
+  "homepage": "https://www.react-kanca.com/",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
@@ -12,7 +13,7 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "build": "microbundle-crl --format modern,cjs",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "dev": "microbundle-crl watch --no-compress --format modern,cjs",
     "prepare": "run-s build",
@@ -48,6 +49,9 @@
     "react",
     "hooks",
     "react-hooks",
-    "frontend"
+    "frontend",
+    "library",
+    "next",
+    "nextjs"
   ]
 }
