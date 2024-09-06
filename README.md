@@ -4,6 +4,8 @@
 
 [![NPM](https://img.shields.io/npm/v/react-kanca.svg)](https://www.npmjs.com/package/react-kanca) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+[react-kanca.com](https://www.react-kanca.com/)
+
 ## Install
 
 ```bash
@@ -23,7 +25,7 @@ pnpm i react-kanca
 ## Usage
 
 Storybook Demo:
-[![React Kanca Storybook](https://raw.githubusercontent.com/storybookjs/brand/37c5e9bde5c56b69a8c4312de7d60fb3a9d7de9d/icon/icon-storybook-default.svg)](https://react-kanca-storybook.vercel.app/)
+[![React Kanca Storybook](https://raw.githubusercontent.com/storybookjs/brand/37c5e9bde5c56b69a8c4312de7d60fb3a9d7de9d/icon/icon-storybook-default.svg)](https://www.react-kanca.com/)
 
 ```jsx
 import {
