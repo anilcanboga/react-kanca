@@ -4,7 +4,6 @@
   "description": "React-kanca, karmaşıklığı azaltarak uygulamalarınızın daha okunabilir, yönetilebilir ve yeniden kullanılabilir olmasını sağlar.",
   "author": "anilcanboga",
   "license": "MIT",
-  "repository": "anilcanboga/react-kanca",
   "homepage": "https://www.react-kanca.com/",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
@@ -52,6 +51,7 @@
     "frontend",
     "library",
     "next",
-    "nextjs"
+    "nextjs",
+    "kanca"
   ]
 }
