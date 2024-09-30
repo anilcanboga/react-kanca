@@ -1,9 +1,8 @@
 # react-kanca
 
-> React-kanca, karmaşıklığı azaltarak projelerinizin daha okunabilir, yönetilebilir ve yeniden kullanılabilir olmasını sağlayan hookları içerir.
+> React-kanca, karmaşıklığı azaltarak projelerinizin daha okunabilir, yönetilebilir ve yeniden kullanılabilir olmasını sağlar. Geliştirme sürecinizi profesyonelleştirmek ve hızlandırmak için özel olarak hazırlanmış React hooklarını içerir.
 
 [![NPM](https://img.shields.io/npm/v/react-kanca.svg)](https://www.npmjs.com/package/react-kanca) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![BundleSize](https://img.shields.io/bundlephobia/min/react-kanca)](https://bundlephobia.com/package/react-kanca)
-
 
 react kanca storybook linki: [react-kanca.com](https://www.react-kanca.com/)
 
