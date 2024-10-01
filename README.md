@@ -1,6 +1,6 @@
 # react-kanca
 
-> React-kanca, karmaşıklığı azaltarak projelerinizin daha okunabilir, yönetilebilir ve yeniden kullanılabilir olmasını sağlar.
+> React-kanca, karmaşıklığı azaltarak projelerinizin daha okunabilir, yönetilebilir ve yeniden kullanılabilir olmasını sağlar. React projelerinde tekrar eden kodları azaltarak geliştirici deneyimini iyileştirmeyi amaçlamaktadır.
 
 [![NPM](https://img.shields.io/npm/v/react-kanca.svg)](https://www.npmjs.com/package/react-kanca) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![License: MIT](https://img.shields.io/badge/License-MIT-white.svg)](https://opensource.org/licenses/MIT) [![BundleSize](https://img.shields.io/bundlephobia/min/react-kanca)](https://bundlephobia.com/package/react-kanca)
 
