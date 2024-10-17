@@ -1,6 +1,6 @@
 {
   "name": "react-kanca",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "React-kanca, karmaşıklığı azaltarak uygulamalarınızın daha okunabilir, yönetilebilir ve yeniden kullanılabilir olmasını sağlar.",
   "author": "anilcanboga",
   "license": "MIT",
@@ -12,7 +12,7 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "microbundle-crl --format modern,cjs",
+    "build": "esbuild src/index.js --bundle --minify --outfile=dist/index.js --format=cjs && esbuild src/index.js --bundle --minify --format=esm --outfile=dist/index.modern.js",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "dev": "microbundle-crl watch --no-compress --format modern,cjs",
     "prepare": "run-s build",
