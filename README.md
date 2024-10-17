@@ -49,6 +49,7 @@ import {
   useCopyToClipboard,
   useDebounce,
   useEqualObject,
+  useFetch
   useForceUpdate,
   useFullScreen,
   useGeolocation,
@@ -69,9 +70,11 @@ import {
   useScrolling,
   useScrollLock,
   useScrollToElement,
+  useSelection,
   useSessionStorage,
   useStateValidator,
   useThrottle,
+  useUpdateEffect,
   useWindowScroll,
   useWindowSize,
 } from 'react-kanca'

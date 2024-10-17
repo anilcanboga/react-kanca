@@ -182,11 +182,11 @@ const App = () => {
     console.log('Count değeri güncellendi:', count)
   }, [count]) */
 
-  const { data, loading, error } = useFetch(
+  /*  const { data, loading, error } = useFetch(
     'https://jsonplaceholder.typicode.com/posts'
   )
   if (loading) return <p>Yükleniyor...</p>
-  if (error) return <p>Hata: {error}</p>
+  if (error) return <p>Hata: {error}</p> */
 
   return (
     <>
@@ -454,14 +454,14 @@ const App = () => {
         <button onClick={() => setCount((prev) => prev + 1)}>Artır</button>
       </div> */}
 
-      <div>
+      {/* <div>
         <h1>Veriler</h1>
         <ul>
           {data.map((post) => (
             <li key={post.id}>{post.title}</li>
           ))}
         </ul>
-      </div>
+      </div> */}
     </>
   )
 }
