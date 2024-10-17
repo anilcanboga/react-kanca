@@ -1,12 +1,12 @@
 {
   "name": "react-kanca",
-  "version": "1.4.7",
+  "version": "1.4.8",
   "description": "React-kanca, karmaşıklığı azaltarak uygulamalarınızın daha okunabilir, yönetilebilir ve yeniden kullanılabilir olmasını sağlar.",
   "author": "anilcanboga",
   "license": "MIT",
   "homepage": "https://react-kanca.com/",
-  "main": "dist/index.js",
-  "module": "dist/index.modern.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "source": "src/index.js",
   "engines": {
     "node": ">=10"
