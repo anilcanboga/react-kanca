@@ -34,7 +34,10 @@ import {
   useScrollToElement,
   useStateValidator,
   useMultiStateValidator,
-  useWindowScroll
+  useWindowScroll,
+  useSelection,
+  useUpdateEffect,
+  useFetch
 } from 'react-kanca'
 // import 'react-kanca/dist/index.css'
 
@@ -167,6 +170,23 @@ const App = () => {
   ) */
 
   // const { x, y } = useWindowScroll()
+
+  /*   const { elementRef, getSelectedText } = useSelection()
+  const handleGetSelection = () => {
+    const selectedText = getSelectedText()
+    alert(`Seçilen metin: ${selectedText}`)
+  } */
+
+  /*   const [count, setCount] = useState(0)
+  useUpdateEffect(() => {
+    console.log('Count değeri güncellendi:', count)
+  }, [count]) */
+
+  const { data, loading, error } = useFetch(
+    'https://jsonplaceholder.typicode.com/posts'
+  )
+  if (loading) return <p>Yükleniyor...</p>
+  if (error) return <p>Hata: {error}</p>
 
   return (
     <>
@@ -421,6 +441,27 @@ const App = () => {
           <div>y: {y}</div>
         </div>
       </div> */}
+
+      {/*       <div>
+        <p ref={elementRef}>
+          Bu metni seçip, düğmeye tıklayarak seçimi kontrol edebilirsiniz.
+        </p>
+        <button onClick={handleGetSelection}>Seçimi Al</button>
+      </div> */}
+
+      {/*       <div>
+        <p>Count: {count}</p>
+        <button onClick={() => setCount((prev) => prev + 1)}>Artır</button>
+      </div> */}
+
+      <div>
+        <h1>Veriler</h1>
+        <ul>
+          {data.map((post) => (
+            <li key={post.id}>{post.title}</li>
+          ))}
+        </ul>
+      </div>
     </>
   )
 }
