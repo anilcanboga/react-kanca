@@ -49,7 +49,7 @@ import {
   useCopyToClipboard,
   useDebounce,
   useEqualObject,
-  useFetch
+  useFetch,
   useForceUpdate,
   useFullScreen,
   useGeolocation,
