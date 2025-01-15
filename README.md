@@ -48,6 +48,7 @@ import {
   useCookie,
   useCopyToClipboard,
   useDebounce,
+  useDocumentTitle
   useEqualObject,
   useFetch,
   useForceUpdate,
@@ -74,9 +75,12 @@ import {
   useSessionStorage,
   useStateValidator,
   useThrottle,
+  useToggle,
   useUpdateEffect,
+  useURLSearchParams,
   useWindowScroll,
   useWindowSize,
+  ErrorBoundaryKanca
 } from 'react-kanca'
 
 // import 'react-kanca/dist/index.css'
