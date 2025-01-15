@@ -37,7 +37,11 @@ import {
   useWindowScroll,
   useSelection,
   useUpdateEffect,
-  useFetch
+  useFetch,
+  ErrorBoundaryKanca,
+  useURLSearchParams,
+  useToggle,
+  useDocumentTitle
 } from 'react-kanca'
 // import 'react-kanca/dist/index.css'
 
@@ -187,6 +191,34 @@ const App = () => {
   )
   if (loading) return <p>Yükleniyor...</p>
   if (error) return <p>Hata: {error}</p> */
+
+  /*   const BuggyComponent = () => {
+    throw new Error('Bu bir hata!')
+    return <div>Bu component çalışıyor.</div>
+  }
+  const fallbackFunction = () => {
+    return <FallbackFunctionComponent />
+  }
+  const FallbackFunctionComponent = () => {
+    return <div>Hata yerine bu geldi.</div>
+  } */
+
+  /*   const [searchParams, updateSearchParams] = useURLSearchParams()
+  const handleUpdateParams = () => {
+    updateSearchParams({ page: '2', sort: 'asc' })
+  }
+  const logSearchParams = () => {
+    const paramsObject = {}
+    searchParams.forEach((value, key) => {
+      paramsObject[key] = value
+    })
+    console.log('paramsObject: ', paramsObject)
+  } */
+
+  // const [isToggled, toggle] = useToggle(false)
+
+  /*   const [count, setCount] = useState(0)
+  useDocumentTitle(`Sayı: ${count}`) */
 
   return (
     <>
@@ -461,6 +493,49 @@ const App = () => {
             <li key={post.id}>{post.title}</li>
           ))}
         </ul>
+      </div> */}
+
+      {/*       <div>
+        <ErrorBoundaryKanca fallback='Bir hata meydana geldi.'>
+          <BuggyComponent />
+        </ErrorBoundaryKanca>
+        <hr />
+        <ErrorBoundaryKanca>
+          // fallback prop'u verilmedi, default mesaj gösteriliyor
+          <BuggyComponent />
+        </ErrorBoundaryKanca>
+        <div>
+          Ekranda gözükecek başka bir metin. ErrorBoundary wrapper yoksa ekranda
+          göstermiyor.
+        </div>
+        <hr />
+        <ErrorBoundaryKanca fallback={fallbackFunction}>
+          <BuggyComponent />
+        </ErrorBoundaryKanca>
+        <hr />
+        <ErrorBoundaryKanca fallback={<FallbackFunctionComponent />}>
+          <BuggyComponent />
+        </ErrorBoundaryKanca>
+      </div> */}
+
+      {/*  <div>
+        <h1>URL Arama Parametreleri</h1>
+        <button onClick={handleUpdateParams}>Parametreleri Güncelle</button>
+        <pre>{searchParams.toString()}</pre>
+        <button onClick={logSearchParams}>
+          Parametreleri Console'a Yazdır
+        </button>
+      </div> */}
+
+      {/* <div>
+        <div>{isToggled ? 'Açık' : 'Kapalı'}</div>
+        <button onClick={toggle}>Toggle</button>
+      </div> */}
+
+      {/* <div>
+        <h1>Sayfa Title Örneği</h1>
+        <p>Sayı: {count}</p>
+        <button onClick={() => setCount(count + 1)}>Artır</button>
       </div> */}
     </>
   )
