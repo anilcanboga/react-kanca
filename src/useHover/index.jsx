@@ -1,26 +1,24 @@
-import { useState, cloneElement } from 'react'
-import { noop } from '../utils/util'
+import { useState, useRef, useEffect } from 'react'
 
-export const useHover = (element) => {
+export const useHover = () => {
   const [state, setState] = useState(false)
+  const ref = useRef(null)
 
-  const onMouseEnter = (originalOnMouseEnter) => (event) => {
-    originalOnMouseEnter || noop(event)
-    setState(true)
-  }
-  const onMouseLeave = (originalOnMouseLeave) => (event) => {
-    originalOnMouseLeave || noop(event)
-    setState(false)
-  }
+  const onMouseEnter = () => setState(true)
+  const onMouseLeave = () => setState(false)
 
-  if (typeof element === 'function') {
-    element = element(state)
-  }
+  useEffect(() => {
+    const node = ref.current
+    if (node) {
+      node.addEventListener('mouseenter', onMouseEnter)
+      node.addEventListener('mouseleave', onMouseLeave)
 
-  const el = cloneElement(element, {
-    onMouseEnter: onMouseEnter(element.props.onMouseEnter),
-    onMouseLeave: onMouseLeave(element.props.onMouseLeave)
-  })
+      return () => {
+        node.removeEventListener('mouseenter', onMouseEnter)
+        node.removeEventListener('mouseleave', onMouseLeave)
+      }
+    }
+  }, [])
 
-  return [el, state]
+  return [ref, state]
 }
