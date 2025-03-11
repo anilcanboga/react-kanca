@@ -80,7 +80,9 @@ import {
   useURLSearchParams,
   useWindowScroll,
   useWindowSize,
-  ErrorBoundaryKanca
+  ErrorBoundaryKanca,
+  useUserAnalytics,
+  useDisableActions
 } from 'react-kanca'
 
 // import 'react-kanca/dist/index.css'

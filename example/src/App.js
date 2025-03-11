@@ -41,7 +41,9 @@ import {
   ErrorBoundaryKanca,
   useURLSearchParams,
   useToggle,
-  useDocumentTitle
+  useDocumentTitle,
+  useUserAnalytics,
+  useDisableActions
 } from 'react-kanca'
 // import 'react-kanca/dist/index.css'
 
@@ -69,7 +71,12 @@ const App = () => {
   // const throttledValue = useThrottle(text, 2000)
   // console.log('throttledValue: ', throttledValue)
 
-  // const [value, setValue, remove] = useLocalStorage('my-key', 'foo')
+  /*   const user = { name: 'Anıl', age: 28 }
+  const [value, setValue, remove] = useLocalStorage('my-key', 'foo', {
+    raw: true // sadece string değerler kaydedilir.
+  })
+  const [value1, setValue1, remove1] = useLocalStorage('my-key1', user)
+  const [value2, setValue2, remove2] = useLocalStorage('my-key2') */
 
   // const obj1 = { a: 1, b: { c: 2 } }
   // const obj2 = { a: 1, b: { c: 2 } }
@@ -113,12 +120,20 @@ const App = () => {
 
   // const { isFullScreen, enterFullScreen, exitFullScreen } = useFullScreen()
 
-  /*   const [name, setName] = useSessionStorage('name', 'John')
-
+  /*    const [name, setName] = useSessionStorage('name', 'John')
   const handleChange = (event) => {
     setName(event.target.value)
   }
-  const [name] = useSessionStorage('name', 'John'); */
+  const [name] = useSessionStorage('name', 'John')
+  console.log('name: ', name)
+
+  const [count, setCount] = useSessionStorage('count', 5)
+  console.log('count: ', count)
+  console.log(sessionStorage.getItem('count'))
+
+  const [user, setUser] = useSessionStorage('user', { name: 'Alice', age: 25 })
+  console.log('user: ', user)
+  console.log(sessionStorage.getItem('user')) // {"name":"Alice","age":25} (JSON formatında) */
 
   /*   const [scrollLock, setScrollLock] = useState(false)
   useScrollLock(scrollLock) */
@@ -220,6 +235,15 @@ const App = () => {
   /*   const [count, setCount] = useState(0)
   useDocumentTitle(`Sayı: ${count}`) */
 
+  /*   const [hoverRef, isHovered] = useHover()
+  useEffect(() => {
+    isHovered && console.log('Element Üzerinde')
+  }, [isHovered]) */
+
+  /*   const { isActive, lastActivity, totalActiveTime, totalInactiveTime } =
+    useUserAnalytics({ inactiveTimeout: 10000 }) */
+
+  // useDisableActions()
   return (
     <>
       {/*  <div>
@@ -275,11 +299,25 @@ const App = () => {
       {/* <div>
         <input type='text' onChange={(e) => setText(e.target.value)} />
       </div> */}
-      {/* <div>
+      {/*       <div>
         <div>Value: {value}</div>
         <button onClick={() => setValue('bar')}>bar</button>
         <button onClick={() => setValue('baz')}>baz</button>
         <button onClick={() => remove()}>Remove</button>
+        <br /> <hr />
+        <div>Value: {JSON.stringify(value1)}</div>
+        <button onClick={() => setValue1({ name: 'Anıl', age: 29 })}>
+          yaş 29
+        </button>
+        <button onClick={() => setValue1({ name: 'Anıl', age: 30 })}>
+          yaş 30
+        </button>
+        <button onClick={() => remove1()}>Remove</button>
+        <br /> <hr />
+        initial value olmadan: <br />
+        <button onClick={() => setValue2('bar')}>bar</button>
+        <button onClick={() => setValue2('baz')}>baz</button>
+        <button onClick={() => remove2()}>Remove</button>
       </div> */}
       {/* <div>
           <p>Value: {value}</p>
@@ -332,7 +370,7 @@ const App = () => {
         <button onClick={exitFullScreen}>Tam Ekran Modundan Çık</button>
         <p>Şu an tam ekran modunda: {isFullScreen ? 'Evet' : 'Hayır'}</p>
       </div> */}
-      {/*       <div>
+      {/*  <div>
         <input type='text' value={name} onChange={handleChange} />
         <p>Hello, {name}!</p>
       </div> */}
@@ -536,6 +574,31 @@ const App = () => {
         <h1>Sayfa Title Örneği</h1>
         <p>Sayı: {count}</p>
         <button onClick={() => setCount(count + 1)}>Artır</button>
+      </div> */}
+
+      {/* <div>
+        <span ref={hoverRef}>
+          {isHovered ? 'Element Üzerinde!' : 'Element Üzerinde Değil'}
+        </span>
+      </div> */}
+
+      {/*       <div>
+        <div>Kullanıcı Analizi</div>
+        <p>Durum: {isActive ? 'Aktif' : 'İnaktif'}</p>
+        <p>Son Aktivite: {new Date(lastActivity).toLocaleTimeString()}</p>
+        <p>Toplam Aktif Süre: {totalActiveTime} saniye</p>
+        <p>Toplam İnaktif Süre: {totalInactiveTime} saniye</p>
+      </div> */}
+
+      {/* <div>
+        <p>
+          Bu sayfada kopyalama, kesme ve metin seçme ve yapıştırma devre dışı
+          bırakılmıştır!
+        </p>
+        <input type='text'></input>
+        <br />
+        <br />
+        <button>Buton</button>
       </div> */}
     </>
   )
