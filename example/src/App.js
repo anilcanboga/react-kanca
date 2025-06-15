@@ -43,7 +43,10 @@ import {
   useToggle,
   useDocumentTitle,
   useUserAnalytics,
-  useDisableActions
+  useDisableActions,
+  useDrop,
+  useRendersCount,
+  useIpInfo
 } from 'react-kanca'
 // import 'react-kanca/dist/index.css'
 
@@ -244,6 +247,23 @@ const App = () => {
     useUserAnalytics({ inactiveTimeout: 10000 }) */
 
   // useDisableActions()
+
+/*   const { dropRef, isOver } = useDrop({
+    onDrop: (files) => {
+      if (files && files.length > 0) {
+        alert(`Yüklenen dosya: ${files[0].name}`)
+      }
+    },
+    onDragOver: () => console.log('Sürükleniyor...'),
+    onDragLeave: () => console.log('Dışarı çıktı.')
+  })
+
+  const update = useForceUpdate()
+  const rendersCount = useRendersCount()
+
+  const { location, error } = useIpInfo()
+  if (error) return <p>Hata: {error}</p>
+  if (!location) return <p>Yükleniyor...</p> */
   return (
     <>
       {/*  <div>
@@ -599,6 +619,33 @@ const App = () => {
         <br />
         <br />
         <button>Buton</button>
+      </div> */}
+
+{/*       <div
+        ref={dropRef}
+        style={{
+          border: '2px dashed #aaa',
+          padding: '2rem',
+          textAlign: 'center',
+          backgroundColor: isOver ? '#d0f0ff' : '#f9f9f9',
+          transition: 'background 0.3s ease'
+        }}
+      >
+        Dosyaları buraya sürükleyip bırakın
+      </div>
+
+      <div>
+        <span>Renders sayısı: {rendersCount}</span>
+        <br />
+        <button onClick={update}>Yeniden render et</button>
+      </div>
+
+      <div>
+        <p>IP: {location.ip}</p>
+        <p>
+          Ülke: {location.country} ({location.countryCode})
+        </p>
+        <p>Şehir: {location.city}</p>
       </div> */}
     </>
   )
