@@ -248,7 +248,7 @@ const App = () => {
 
   // useDisableActions()
 
-/*   const { dropRef, isOver } = useDrop({
+  /* const { dropRef, isOver } = useDrop({
     onDrop: (files) => {
       if (files && files.length > 0) {
         alert(`Yüklenen dosya: ${files[0].name}`)
@@ -256,12 +256,12 @@ const App = () => {
     },
     onDragOver: () => console.log('Sürükleniyor...'),
     onDragLeave: () => console.log('Dışarı çıktı.')
-  })
+  }) */
 
-  const update = useForceUpdate()
-  const rendersCount = useRendersCount()
+  /* const update = useForceUpdate()
+  const rendersCount = useRendersCount() */
 
-  const { location, error } = useIpInfo()
+  /* const { location, error } = useIpInfo()
   if (error) return <p>Hata: {error}</p>
   if (!location) return <p>Yükleniyor...</p> */
   return (
@@ -621,7 +621,7 @@ const App = () => {
         <button>Buton</button>
       </div> */}
 
-{/*       <div
+      {/* <div
         ref={dropRef}
         style={{
           border: '2px dashed #aaa',
@@ -632,15 +632,15 @@ const App = () => {
         }}
       >
         Dosyaları buraya sürükleyip bırakın
-      </div>
+      </div> */}
 
-      <div>
+      {/* <div>
         <span>Renders sayısı: {rendersCount}</span>
         <br />
         <button onClick={update}>Yeniden render et</button>
-      </div>
+      </div> */}
 
-      <div>
+      {/* <div>
         <p>IP: {location.ip}</p>
         <p>
           Ülke: {location.country} ({location.countryCode})
