@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
+import ExampleUseD from './ExampleUseS/AppUseS'
 
 import {
   useWindowSize,
@@ -46,7 +47,8 @@ import {
   useDisableActions,
   useDrop,
   useRendersCount,
-  useIpInfo
+  useIpInfo,
+  useDebounceCallback
 } from 'react-kanca'
 // import 'react-kanca/dist/index.css'
 
@@ -79,7 +81,32 @@ const App = () => {
     raw: true // sadece string değerler kaydedilir.
   })
   const [value1, setValue1, remove1] = useLocalStorage('my-key1', user)
-  const [value2, setValue2, remove2] = useLocalStorage('my-key2') */
+  const [value2, setValue2, remove2] = useLocalStorage('my-key2')
+
+  const [kullanici, setKullanici] = useLocalStorage('kullanici', {
+    name: '',
+    age: 0
+  })
+  useEffect(() => {
+    setKullanici({ name: 'Boga', age: 30 })
+  }, [])
+
+  const [count, setCount] = useLocalStorage('count', 0)
+
+  const [darkMode, setDarkMode] = useLocalStorage('dark', false)
+  useEffect(() => {
+    setDarkMode(true)
+  }, [])
+
+  const [items, setItems] = useLocalStorage('items', [])
+  useEffect(() => {
+    setItems(['elma', 'armut', 'muz'])
+  }, [])
+
+  const [token, setToken] = useLocalStorage('token')
+  useEffect(() => {
+    setToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...')
+  }, []) */
 
   // const obj1 = { a: 1, b: { c: 2 } }
   // const obj2 = { a: 1, b: { c: 2 } }
@@ -87,15 +114,16 @@ const App = () => {
   // console.log(useEqualObject(obj1, obj2)) // true
   // console.log(useEqualObject(obj1, obj3)) // false
 
-  // const [value, updateCookie, deleteCookie] = useCookie('my-cookie')
-  // const [counter, setCounter] = useState(1)
-  // useEffect(() => {
-  //   deleteCookie()
-  // }, [])
-  // const updateCookieHandler = () => {
-  //   updateCookie(`my-awesome-cookie-${counter}`)
-  //   setCounter((c) => c + 1)
-  // }
+  /* const [value, updateCookie, deleteCookie] = useCookie('my-cookie')
+  const [counter, setCounter] = useState(1)
+  useEffect(() => {
+    deleteCookie()
+    updateCookie('initial-value', { seconds: 5 })
+  }, [])
+  const updateCookieHandler = () => {
+    updateCookie(`my-awesome-cookie-${counter}`)
+    setCounter((c) => c + 1)
+  } */
 
   // const state = useGeolocation()
 
@@ -264,6 +292,19 @@ const App = () => {
   /* const { location, error } = useIpInfo()
   if (error) return <p>Hata: {error}</p>
   if (!location) return <p>Yükleniyor...</p> */
+
+  /*   const [query, setQuery] = useState('')
+
+  const debouncedSearch = useDebounceCallback((value) => {
+    console.log('API call with:', value)
+    // örn: fetch(`/api/search?q=${value}`)
+  }, 500)
+
+  const handleChange = (e) => {
+    const value = e.target.value
+    setQuery(value)
+    debouncedSearch(value)
+  } */
   return (
     <>
       {/*  <div>
@@ -338,13 +379,19 @@ const App = () => {
         <button onClick={() => setValue2('bar')}>bar</button>
         <button onClick={() => setValue2('baz')}>baz</button>
         <button onClick={() => remove2()}>Remove</button>
+        <div>
+          <div>
+            <p>Sayım: {count}</p>
+            <button onClick={() => setCount((prev) => prev + 1)}>Artır</button>
+          </div>
+        </div>
       </div> */}
       {/* <div>
-          <p>Value: {value}</p>
-          <button onClick={updateCookieHandler}>Update Cookie</button>
-          <br />
-          <button onClick={deleteCookie}>Delete Cookie</button>
-        </div> */}
+        <p>Value: {value}</p>
+        <button onClick={updateCookieHandler}>Update Cookie</button>
+        <br />
+        <button onClick={deleteCookie}>Delete Cookie</button>
+      </div> */}
       {/* <div>
         <pre>{JSON.stringify(state, null, 2)}</pre>
       </div> */}
@@ -647,6 +694,15 @@ const App = () => {
         </p>
         <p>Şehir: {location.city}</p>
       </div> */}
+
+      {/*       <input
+        type='text'
+        value={query}
+        onChange={handleChange}
+        placeholder='Search something...'
+        className='border px-2 py-1'
+      /> */}
+      {/* <ExampleUseD /> */}
     </>
   )
 }
