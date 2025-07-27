@@ -48,7 +48,14 @@ import {
   useDrop,
   useRendersCount,
   useIpInfo,
-  useDebounceCallback
+  useDebounceCallback,
+  useCamera,
+  useSpeechToText,
+  useTextToSpeech,
+  useCookieListener,
+  useAudioRecorder,
+  useScrollDirection,
+  useFuzzySearch
 } from 'react-kanca'
 // import 'react-kanca/dist/index.css'
 
@@ -136,8 +143,7 @@ const App = () => {
 
   // const { status } = useConnection()
 
-  // const { batteryLevel, isCharging, dischargingTime } =
-  //   useBatteryInfo()
+  // const { batteryLevel, isCharging, dischargingTime } = useBatteryInfo()
 
   // const { copied, error, copyToClipboard } = useCopyToClipboard()
 
@@ -305,6 +311,67 @@ const App = () => {
     setQuery(value)
     debouncedSearch(value)
   } */
+
+  // const { videoRef, error } = useCamera()
+
+  /* const {
+    transcript,
+    interimTranscript,
+    isListening,
+    error,
+    startListening,
+    stopListening
+  } = useSpeechToText({ lang: 'tr-TR' }) */
+
+  /*   const [text, setText] = useState('Merhaba! Şu an yazıyı sese çeviriyorum.')
+  const [selectedVoiceURI, setSelectedVoiceURI] = useState(null)
+  const { speak, pause, resume, cancel, speaking, paused, supported, voices } =
+    useTextToSpeech()
+  const handleSpeak = () => {
+    speak(text, {
+      lang: 'tr-TR', // otomatik ses diline uymazsa override edebilirsin
+      voiceURI: selectedVoiceURI || undefined
+    })
+  }
+  if (!supported) return <p>Tarayıcınız konuşma özelliğini desteklemiyor.</p> */
+
+  /* const [cookieValue, setCookieValue] = useState()
+  useCookieListener('demoCookie', (newVal) => {
+    console.log('Cookie değişti:', newVal)
+    setCookieValue(newVal)
+  })
+  const setCookie = () => {
+    document.cookie = `demoCookie=${encodeURIComponent('Merhaba!')}; path=/`
+  }
+  const clearCookie = () => {
+    document.cookie =
+      'demoCookie=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC'
+  } */
+
+  /* const { isRecording, audioURL, startRecording, stopRecording } =
+    useAudioRecorder() */
+
+  /* const scrollDirection = useScrollDirection({
+    threshold: 10,
+    initialDirection: 'up'
+  }) */
+
+  /* const users = [
+    { id: 1, name: 'Anılcan' },
+    { id: 2, name: 'Ali' },
+    { id: 3, name: 'Ayşe' },
+    { id: 4, name: 'Ahmet' },
+    { id: 5, name: 'Arda' }
+  ]
+  const [query, setQuery] = useState('')
+  const results = useFuzzySearch({
+    query,
+    list: users,
+    keySelector: (user) => user.name,
+    threshold: 3 // opsiyonel Levenshtein mesafesinin en fazla kaç olabileceğini belirler.
+    // Yani: "Kaç harf farkına kadar bu sonuç benzer kabul edilsin?"
+  }) */
+
   return (
     <>
       {/*  <div>
@@ -330,7 +397,6 @@ const App = () => {
           <p>Debounced Yazı: {debouncedText}</p>
         </div>
       </div> */}
-
       <br />
       {/* <h1>Current Count: {count}</h1>
       <h2>Previous Count: {prevCount !== undefined ? prevCount : 'N/A'}</h2>
@@ -482,7 +548,6 @@ const App = () => {
       >
         {isVisible ? 'Görünür!' : 'Görünmez!'}
       </div> */}
-
       {/*       <div>
         <h1>
           {isMobileLandscape
@@ -495,9 +560,7 @@ const App = () => {
             : 'Ya mobil cihazda değilsiniz ya da landscape modundasınız.'}
         </p>
       </div> */}
-
       {/* <div>{isOnline ? <p>Çevrimiçi</p> : <p>Çevrimdışı</p>}</div> */}
-
       {/*       <div>
         <button onClick={() => scrollToElement(myRef)}>Ref ile Kaydır</button>
         <button onClick={() => scrollToElement('#my-element')}>
@@ -512,7 +575,6 @@ const App = () => {
           Hedef Element
         </div>
       </div> */}
-
       {/*       <div>
         <div>
           Aşağıdaki alan yalnızca sayının çift olması durumunda geçerlidir
@@ -528,7 +590,6 @@ const App = () => {
         />
         {isValid !== null && <span>{isValid ? 'Geçerli!' : 'Geçersiz'}</span>}
       </div> */}
-
       {/*       <div>
         <div>Aşağıdaki alanların tamamı çift sayı ise geçerli olacaktır.</div>
         <input
@@ -560,7 +621,6 @@ const App = () => {
         />
         {isValid !== null && <span>{isValid ? 'Geçerli!' : 'Geçersiz'}</span>}
       </div> */}
-
       {/*   <div
         style={{
           width: '200vw',
@@ -578,19 +638,16 @@ const App = () => {
           <div>y: {y}</div>
         </div>
       </div> */}
-
       {/*       <div>
         <p ref={elementRef}>
           Bu metni seçip, düğmeye tıklayarak seçimi kontrol edebilirsiniz.
         </p>
         <button onClick={handleGetSelection}>Seçimi Al</button>
       </div> */}
-
       {/*       <div>
         <p>Count: {count}</p>
         <button onClick={() => setCount((prev) => prev + 1)}>Artır</button>
       </div> */}
-
       {/* <div>
         <h1>Veriler</h1>
         <ul>
@@ -599,7 +656,6 @@ const App = () => {
           ))}
         </ul>
       </div> */}
-
       {/*       <div>
         <ErrorBoundaryKanca fallback='Bir hata meydana geldi.'>
           <BuggyComponent />
@@ -622,7 +678,6 @@ const App = () => {
           <BuggyComponent />
         </ErrorBoundaryKanca>
       </div> */}
-
       {/*  <div>
         <h1>URL Arama Parametreleri</h1>
         <button onClick={handleUpdateParams}>Parametreleri Güncelle</button>
@@ -631,24 +686,20 @@ const App = () => {
           Parametreleri Console'a Yazdır
         </button>
       </div> */}
-
       {/* <div>
         <div>{isToggled ? 'Açık' : 'Kapalı'}</div>
         <button onClick={toggle}>Toggle</button>
       </div> */}
-
       {/* <div>
         <h1>Sayfa Title Örneği</h1>
         <p>Sayı: {count}</p>
         <button onClick={() => setCount(count + 1)}>Artır</button>
       </div> */}
-
       {/* <div>
         <span ref={hoverRef}>
           {isHovered ? 'Element Üzerinde!' : 'Element Üzerinde Değil'}
         </span>
       </div> */}
-
       {/*       <div>
         <div>Kullanıcı Analizi</div>
         <p>Durum: {isActive ? 'Aktif' : 'İnaktif'}</p>
@@ -656,7 +707,6 @@ const App = () => {
         <p>Toplam Aktif Süre: {totalActiveTime} saniye</p>
         <p>Toplam İnaktif Süre: {totalInactiveTime} saniye</p>
       </div> */}
-
       {/* <div>
         <p>
           Bu sayfada kopyalama, kesme ve metin seçme ve yapıştırma devre dışı
@@ -667,7 +717,6 @@ const App = () => {
         <br />
         <button>Buton</button>
       </div> */}
-
       {/* <div
         ref={dropRef}
         style={{
@@ -680,13 +729,11 @@ const App = () => {
       >
         Dosyaları buraya sürükleyip bırakın
       </div> */}
-
       {/* <div>
         <span>Renders sayısı: {rendersCount}</span>
         <br />
         <button onClick={update}>Yeniden render et</button>
       </div> */}
-
       {/* <div>
         <p>IP: {location.ip}</p>
         <p>
@@ -694,7 +741,6 @@ const App = () => {
         </p>
         <p>Şehir: {location.city}</p>
       </div> */}
-
       {/*       <input
         type='text'
         value={query}
@@ -703,6 +749,156 @@ const App = () => {
         className='border px-2 py-1'
       /> */}
       {/* <ExampleUseD /> */}
+      {/* <div>
+        {error && (
+          <p style={{ color: 'red' }}>Kamera hatası: {error.message}</p>
+        )}
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          playsInline
+          style={{
+            width: '100%',
+            maxWidth: 640,
+            borderRadius: 8,
+            backgroundColor: '#000'
+          }}
+        />
+      </div> */}
+      {/* <div>
+        <h1>🎙️ Sesli Yazı</h1>
+
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+
+        <button onClick={isListening ? stopListening : startListening}>
+          {isListening ? 'Durdur' : 'Başla'}
+        </button>
+
+        <p>
+          <strong>Yazı:</strong> {transcript}
+        </p>
+        {interimTranscript && (
+          <p style={{ opacity: 0.6 }}>
+            <em>Geçici Yazı: {interimTranscript}</em>
+          </p>
+        )}
+      </div> */}
+      {/* <div>
+        <h2>🗣️ Metni Sese Çevir</h2>
+        <textarea
+          rows={4}
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
+
+        <div style={{ marginTop: 10 }}>
+          <label>Ses Seç:</label>
+          <select
+            value={selectedVoiceURI || ''}
+            onChange={(e) => setSelectedVoiceURI(e.target.value)}
+          >
+            <option value=''>(Varsayılan Ses)</option>
+            {voices.map((voice) => (
+              <option key={voice.voiceURI} value={voice.voiceURI}>
+                {voice.name} ({voice.lang}) {voice.default ? '⭐' : ''}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div style={{ marginTop: 10 }}>
+          <button onClick={handleSpeak}>Konuş</button>
+          <button onClick={pause} disabled={!speaking || paused}>
+            Duraklat
+          </button>
+          <button onClick={resume} disabled={!paused}>
+            Devam Et
+          </button>
+          <button onClick={cancel} disabled={!speaking}>
+            Durdur
+          </button>
+        </div>
+        <p>
+          Durum: {paused ? 'Duraklatıldı' : speaking ? 'Konuşuluyor' : 'Hazır'}
+        </p>
+      </div> */}
+      {/* <div style={{ padding: 24 }}>
+        <h2>Cookie değeri: {cookieValue || '(yok)'}</h2>
+        <button onClick={setCookie}>Cookie Ayarla</button>
+        <button onClick={clearCookie} style={{ marginLeft: 10 }}>
+          Cookie Sil
+        </button>
+      </div> */}
+      {/*  <div style={{ padding: 24 }}>
+        <h2>Ses Kaydedici</h2>
+        <button onClick={isRecording ? stopRecording : startRecording}>
+          {isRecording ? 'Kaydı Durdur' : 'Kaydı Başlat'}
+        </button>
+
+        {audioURL && (
+          <div style={{ marginTop: 20 }}>
+            <p>🔊 Kayıt:</p>
+            <audio controls src={audioURL}></audio>
+            <br />
+            <a href={audioURL} download='kayit.webm'>
+              İndir
+            </a>
+          </div>
+        )}
+      </div> */}
+
+      {/*  <div>
+        <header
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: '60px',
+            backgroundColor: scrollDirection === 'down' ? '#e74c3c' : '#2ecc71',
+            color: '#fff',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transform:
+              scrollDirection === 'down'
+                ? 'translateY(-100%)'
+                : 'translateY(0)',
+            transition: 'transform 0.3s ease',
+            zIndex: 999
+          }}
+        >
+          Scroll Direction:{' '}
+          <strong style={{ marginLeft: 5 }}>{scrollDirection}</strong>
+        </header>
+        <main style={{ marginTop: '80px', padding: '0 20px' }}>
+          <h1>Scroll Test Sayfası</h1>
+          <p>Bu sayfa, scroll yönünü test etmek için oluşturulmuştur.</p>
+          {[...Array(50)].map((_, i) => (
+            <p key={i}>
+              Paragraf {i + 1} - Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit. Nulla porta felis eu risus pretium, sed congue
+              neque blandit. Integer non felis ut nulla ultricies tristique.
+            </p>
+          ))}
+        </main>
+      </div> */}
+
+      {/* <div>
+        <h2>Fuzzy Search</h2>
+        <input
+          type='text'
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder='İsim ara...'
+        />
+        <ul>
+          {results.map((user) => (
+            <li key={user.id}>{user.name}</li>
+          ))}
+          {results.length === 0 && <li>Sonuç bulunamadı.</li>}
+        </ul>
+      </div> */}
     </>
   )
 }
