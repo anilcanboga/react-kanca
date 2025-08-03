@@ -55,7 +55,8 @@ import {
   useCookieListener,
   useAudioRecorder,
   useScrollDirection,
-  useFuzzySearch
+  useFuzzySearch,
+  useDetectKeyboardOpen
 } from 'react-kanca'
 // import 'react-kanca/dist/index.css'
 
@@ -371,6 +372,8 @@ const App = () => {
     threshold: 3 // opsiyonel Levenshtein mesafesinin en fazla kaç olabileceğini belirler.
     // Yani: "Kaç harf farkına kadar bu sonuç benzer kabul edilsin?"
   }) */
+
+  // const isKeyboardOpen = useDetectKeyboardOpen()
 
   return (
     <>
@@ -898,6 +901,13 @@ const App = () => {
           ))}
           {results.length === 0 && <li>Sonuç bulunamadı.</li>}
         </ul>
+      </div> */}
+
+      {/* <div>
+        <div>{isKeyboardOpen ? 'Klavye açık' : 'Klavye kapalı'}</div>
+        <div>
+          <input type='text'></input>
+        </div>
       </div> */}
     </>
   )
