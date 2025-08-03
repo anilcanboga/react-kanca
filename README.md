@@ -55,6 +55,7 @@ useDebounceCallback,
 useDisableActions,
 useDocumentTitle
 useDrop,
+useDetectKeyboardOpen,
 useEqualObject,
 useFetch,
 useForceUpdate,
