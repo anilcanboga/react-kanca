@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
-import ExampleUseD from './ExampleUseS/AppUseS'
+import ExampleUseS from './ExampleUseS/AppUseS'
 
 import {
   useWindowSize,
@@ -751,7 +751,7 @@ const App = () => {
         placeholder='Search something...'
         className='border px-2 py-1'
       /> */}
-      {/* <ExampleUseD /> */}
+      {/* <ExampleUseS /> */}
       {/* <div>
         {error && (
           <p style={{ color: 'red' }}>Kamera hatası: {error.message}</p>
