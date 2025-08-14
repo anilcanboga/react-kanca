@@ -41,9 +41,7 @@
   "files": [
     "dist"
   ],
-  "dependencies": {
-    "js-cookie": "^3.0.5"
-  },
+  "dependencies": {},
   "keywords": [
     "react",
     "hooks",
