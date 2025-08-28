@@ -56,7 +56,11 @@ import {
   useAudioRecorder,
   useScrollDirection,
   useFuzzySearch,
-  useDetectKeyboardOpen
+  useDetectKeyboardOpen,
+  useNumberFormat,
+  useCurrency,
+  useRelativeTime,
+  useDateTimeFormat
 } from 'react-kanca'
 // import 'react-kanca/dist/index.css'
 
@@ -374,6 +378,24 @@ const App = () => {
   }) */
 
   // const isKeyboardOpen = useDetectKeyboardOpen()
+
+  /*   const formatted = useNumberFormat(1234567.89) // locale = tr-TR -> "1.234.567,89" || en-US gibi seçenekler de olabilir
+  const formattedUs = useNumberFormat(1234567.89, 'en-US') */
+
+  /*  const usd = useCurrency(1234567.89, 'USD')
+  const tryCurrency = useCurrency(1234567.89, 'TRY') */
+
+  /* const yesterday = useRelativeTime(-1, 'day') // "yesterday" (tr-TR'de: "dün")
+  const twoHours = useRelativeTime(-2, 'hour') // "2 hours ago" */
+
+  /* const now = useDateTimeFormat(new Date(), {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  }) */
 
   return (
     <>
@@ -908,6 +930,25 @@ const App = () => {
         <div>
           <input type='text'></input>
         </div>
+      </div> */}
+
+      {/* <div>
+        <p>Sayı: {formatted}</p>
+        <p>Sayı 'en-US': {formattedUs}</p>
+      </div> */}
+
+      {/* <div>
+        <p>Dolar: {usd}</p> // "$1,234,567.89"
+        <p>Türk Lirası: {tryCurrency}</p> // "₺1.234.567,89"
+      </div> */}
+
+      {/* <div>
+        <p>{yesterday}</p>
+        <p>{twoHours}</p>
+      </div> */}
+
+      {/*  <div>
+        <p>Tarih: {now}</p>
       </div> */}
     </>
   )
