@@ -1,4 +1,4 @@
-const esbuild = require('esbuild')
+/* const esbuild = require('esbuild')
 
 // CommonJS formatında çıktı
 esbuild
@@ -23,6 +23,24 @@ esbuild
     minify: true,
     sourcemap: false,
     outfile: 'dist/index.esm.js',
+    target: 'es2015',
+    platform: 'node',
+    external: ['react', 'react-dom'],
+    format: 'esm' // ES Module formatı
+  })
+  .catch(() => process.exit(1))
+ */
+
+import * as esbuild from 'esbuild'
+
+// ES Module formatında çıktı
+esbuild
+  .build({
+    entryPoints: ['src/index.js'],
+    bundle: true,
+    minify: true,
+    sourcemap: false,
+    outfile: 'dist/index.js',
     target: 'es2015',
     platform: 'node',
     external: ['react', 'react-dom'],

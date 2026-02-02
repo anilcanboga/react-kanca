@@ -5,16 +5,15 @@
   "author": "anilcanboga",
   "license": "MIT",
   "homepage": "https://react-kanca.com/",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
+  "main": "dist/index.js",
   "source": "src/index.js",
   "engines": {
     "node": ">=10"
   },
   "scripts": {
     "build": "node build.js",
-    "start": "microbundle-crl watch --no-compress --format modern,cjs",
-    "dev": "microbundle-crl watch --no-compress --format modern,cjs",
+    "start": "microbundle-crl watch --no-compress --no-sourcemap --format modern",
+    "dev": "microbundle-crl watch --no-compress --format modern",
     "prepare": "run-s build",
     "test": "run-s test:unit test:lint test:build",
     "test:build": "run-s build",
@@ -41,7 +40,8 @@
   "files": [
     "dist"
   ],
-  "dependencies": {},
+  "dependencies": {
+  },
   "keywords": [
     "react",
     "hooks",
