@@ -60,7 +60,11 @@ import {
   useNumberFormat,
   useCurrency,
   useRelativeTime,
-  useDateTimeFormat
+  useDateTimeFormat,
+  useEventListener,
+  useResizeObserver,
+  useTimeout,
+  useIsClient
 } from 'react-kanca'
 // import 'react-kanca/dist/index.css'
 
@@ -396,6 +400,29 @@ const App = () => {
     hour: '2-digit',
     minute: '2-digit'
   }) */
+
+  /* const [isOpen, setIsOpen] = useState(true)
+  useEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      setIsOpen(false)
+    }
+  }) */
+
+  /* const containerRef = useRef(null)
+  const { width, height } = useResizeObserver({
+    ref: containerRef
+  }) */
+
+  /* const [visible, setVisible] = useState(true)
+
+  useTimeout(
+    () => {
+      setVisible(false)
+    },
+    visible ? 3000 : null
+  ) */
+
+  // const isClient = useIsClient()
 
   return (
     <>
@@ -949,6 +976,41 @@ const App = () => {
 
       {/*  <div>
         <p>Tarih: {now}</p>
+      </div> */}
+
+      {/* <div>
+        <button onClick={() => setIsOpen(true)}>Modal Aç</button>
+
+        {isOpen && <div>ESC tuşuna basarak kapatabilirsin.</div>}
+      </div> */}
+
+      {/* <div
+        ref={containerRef}
+        style={{
+          width: '400px',
+          maxWidth: '100%',
+          height: '200px',
+          resize: 'both',
+          overflow: 'auto',
+          border: '1px solid gray',
+          padding: '16px',
+          boxSizing: 'border-box'
+        }}
+      >
+        <p>Genişlik: {width?.toFixed(0) ?? '-'}px</p>
+        <p>Yükseklik: {height?.toFixed(0) ?? '-'}px</p>
+      </div> */}
+
+      {/* <div>
+        {visible && <p>İşlem başarıyla tamamlandı!</p>}
+
+        <button onClick={() => setVisible(true)}>Bildirimi Göster</button>
+      </div> */}
+
+      {/* <div>
+        {isClient
+          ? `Tarayıcı dili: ${navigator.language}`
+          : 'Tarayıcı bilgileri hazırlanıyor...'}
       </div> */}
     </>
   )
